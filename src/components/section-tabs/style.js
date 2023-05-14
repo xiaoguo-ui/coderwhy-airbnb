@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const TabsWrapper = styled.div`
   .item {
     box-sizing: border-box;

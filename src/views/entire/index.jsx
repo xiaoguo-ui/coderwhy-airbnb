@@ -1,14 +1,28 @@
-import React, { memo } from 'react'
+import { fetchEntireDataAction } from '@/store/features/entire/actionCreators'
+import { changeHeaderConfigAction } from '@/store/features/main'
+import React, { memo, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import EntireFilter from './c-cpns/entire-filter'
+import EntirePagination from './c-cpns/entire-pagination'
+import EntireRooms from './c-cpns/entire-rooms'
 import { EntireWrapper } from './style'
 
-const Entire = memo(() => {
+const Entire = memo((props) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchEntireDataAction())
+    dispatch(changeHeaderConfigAction({ isFixed: true, isHome: false }))
+  }, [dispatch])
+
   return (
     <EntireWrapper>
-      <div className='filter'>filter-section</div>
-      <div className='rooms'>room-section</div>
-      <div className='pagination'>pagination-section</div>
+      <EntireFilter/>
+      <EntireRooms/>
+      <EntirePagination/>
     </EntireWrapper>
   )
 })
+
+Entire.propTypes = {}
 
 export default Entire

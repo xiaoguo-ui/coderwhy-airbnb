@@ -1,18 +1,12 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const ItemWrapper = styled.div`
   flex-shrink: 0;
   width: 20%;
   
   .inner {
+    position: relative;
     padding: 8px;
-
-    .item-info {
-      position: relative;
-      border-radius: 3px;
-      overflow: hidden;
-    }
   }
 
   .cover {
@@ -21,8 +15,8 @@ export const ItemWrapper = styled.div`
 
   .bg-cover {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 8px;
+    right: 8px;
     bottom: 0;
     height: 60%;
     background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 3%, rgb(0, 0, 0) 100%)

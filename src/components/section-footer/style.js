@@ -1,25 +1,21 @@
 import styled from "styled-components";
 
-
 export const FooterWrapper = styled.div`
-  display: flex;
-  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  margin: 15px 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  color: ${props => props.name ? props.theme.color.secondaryColor: "#000"};
+  cursor: pointer;
 
-  .info {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  .text {
+    margin-right: 5px;
+  }
 
-    font-size: 17px;
-    font-weight: 700;
-    color: ${props => props.color};
-    
-    &:hover {
-      text-decoration: underline;
-    }
-
+  &:hover {
     .text {
-      margin-right: 6px;
+      text-decoration: underline;
     }
   }
 `

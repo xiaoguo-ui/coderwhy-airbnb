@@ -1,9 +1,11 @@
 const initialState = {
-  currentPage: 3
+  counter: 100
 }
 
 function reducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
+    case "increment":
+      return {...state, counter: state.counter + 1}
     default:
       return state
   }

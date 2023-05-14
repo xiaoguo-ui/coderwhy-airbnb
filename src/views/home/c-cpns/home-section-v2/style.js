@@ -1,5 +1,5 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const SectionV2Wrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 50px;
 `

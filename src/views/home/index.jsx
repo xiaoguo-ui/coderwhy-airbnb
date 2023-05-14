@@ -1,51 +1,49 @@
+import { fetchHomeAllDataAction } from '@/store/features/home'
+import { changeHeaderConfigAction } from '@/store/features/main'
 import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
-import { fetchHomeDataAction } from '@/store/modules/home'
 import HomeBanner from './c-cpns/home-banner'
-import { HomeWrapper } from './style'
+import HomeLongFor from './c-cpns/home-longfor'
 import HomeSectionV1 from './c-cpns/home-section-v1'
 import HomeSectionV2 from './c-cpns/home-section-v2'
-import { isEmptyO } from '@/utils'
-import HomeLongfor from './c-cpns/home-longfor'
 import HomeSectionV3 from './c-cpns/home-section-v3'
+import { HomeWrapper } from './style'
 
-const Home = memo(() => {
+const Home = memo((props) => {
+
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo, plusInfo } = useSelector((state) => ({
-    goodPriceInfo: state.home.goodPriceInfo,
-    highScoreInfo: state.home.highScoreInfo,
+  const { discountInfo, hotRecommendInfo, highScoreInfo, goodPriceInfo, plusInfo, longForInfo } = useSelector((state) => ({
     discountInfo: state.home.discountInfo,
-    recommendInfo: state.home.recommendInfo,
-    longforInfo: state.home.longforInfo,
-    plusInfo: state.home.plusInfo
+    hotRecommendInfo: state.home.hotRecommendInfo,
+    highScoreInfo: state.home.highScoreInfo,
+    goodPriceInfo: state.home.goodPriceInfo,
+    plusInfo: state.home.plusInfo,
+    longForInfo: state.home.longForInfo
   }), shallowEqual)
 
-  /** 派发异步的事件: 发送网络请求 */
+  /** 派发事件,发送网络请求 */
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchHomeDataAction("xxxx"))
+    dispatch(fetchHomeAllDataAction())
+    dispatch(changeHeaderConfigAction({ isFixed: true, isHome: true }))
   }, [dispatch])
 
   return (
     <HomeWrapper>
       <HomeBanner/>
       <div className='content'>
-        {/* 折扣数据 */}
-        {/* <div className='discount'>
-          <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle}/>
-          <SectionTabs tabNames={tabNames} tabClick={tabClickHandle}/>
-          <SectionRooms roomList={discountInfo.dest_list?.[name]} itemWidth="33.33333%"/>
-        </div> */}
-        { isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo}/>}
-        { isEmptyO(recommendInfo) && <HomeSectionV2 infoData={recommendInfo}/>}
-        { isEmptyO(longforInfo) && <HomeLongfor infoData={longforInfo}/> }
-        { isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo}/> }
-        { isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo}/> }
-        { isEmptyO(plusInfo) && <HomeSectionV3 infoData={plusInfo}/> }
+        <HomeSectionV1 infoData={discountInfo}/>
+        <HomeSectionV1 infoData={hotRecommendInfo}/>
+        <HomeLongFor infoData={longForInfo}/>
+        <HomeSectionV2 infoData={highScoreInfo}/>
+        <HomeSectionV2 infoData={goodPriceInfo}/>
+        <HomeSectionV3 infoData={plusInfo}/>
       </div>
     </HomeWrapper>
   )
 })
+
+Home.propTypes = {}
 
 export default Home

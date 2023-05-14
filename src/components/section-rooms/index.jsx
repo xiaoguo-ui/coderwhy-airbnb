@@ -1,20 +1,19 @@
 import PropTypes from 'prop-types'
 import React, { memo } from 'react'
-
 import RoomItem from '../room-item'
-import { RoomsWrapper } from './style'
+import { RoomWrapper } from './style'
 
 const SectionRooms = memo((props) => {
-  const { roomList = [], itemWidth } = props
+  const { roomList, itemWidth } = props
 
   return (
-    <RoomsWrapper>
+    <RoomWrapper>
       {
-        roomList.slice(0, 8)?.map(item => {
-          return <RoomItem itemData={item} itemWidth={itemWidth} key={item.id}/>
+        roomList.map(item => {
+          return <RoomItem key={item.id} itemData={item} itemWidth={itemWidth}/>
         })
       }
-    </RoomsWrapper>
+    </RoomWrapper>
   )
 })
 

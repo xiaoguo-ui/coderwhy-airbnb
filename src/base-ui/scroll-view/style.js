@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-
-export const ViewWrapper = styled.div`
+export const ScrollWrapper = styled.div`
   position: relative;
   padding: 8px 0;
 
-  .scroll {
+  .content {
     overflow: hidden;
 
-    .scroll-content {
+    .scroll {
       display: flex;
-      transition: transform 250ms ease;
+      white-space: nowrap;
+      transition: transform 200ms ease;
     }
   }
 
