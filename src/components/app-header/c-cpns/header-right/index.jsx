@@ -7,6 +7,7 @@ import IconProfileAvatar from '@/assets/svg/icon-profile-avatar'
 const HeaderRight = memo(() => {
   return (
     <RightWrapper>
+      {/* 登录--注册 */}
       <div className='btns'>
         <span className='btn'>登录</span>
         <span className='btn'>注册</span>
@@ -14,7 +15,7 @@ const HeaderRight = memo(() => {
           <IconGlobal/>
         </span>
       </div>
-
+      {/* 图标--同理 */}
       <div className='profile'>
         <IconProfileMenu/>
         <IconProfileAvatar/>

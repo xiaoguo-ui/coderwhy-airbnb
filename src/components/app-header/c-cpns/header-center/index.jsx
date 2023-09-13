@@ -7,6 +7,7 @@ import SearchTabs from './c-cpns/search-tabs'
 import SearchSections from './c-cpns/search-sections'
 
 const HeaderCenter = memo((props) => {
+  // 父组件传过来的参数
   const { isSearch, searchBarClick } = props
   const [currentTab, setCurrentTab] = useState(0)
 

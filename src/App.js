@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { useRoutes } from "react-router-dom"
+import { useRoutes } from 'react-router-dom'
 import AppFooter from './components/app-footer'
 import AppHeader from './components/app-header'
 import { useScrollTop } from './hooks'
@@ -10,9 +10,12 @@ const App = memo((props) => {
 
   return (
     <div>
-      <AppHeader/>
+      {/* 头部 */}
+      <AppHeader />
+      {/* 页面主题 */}
       <div>{useRoutes(routes)}</div>
-      <AppFooter/>
+      {/* 底部 */}
+      <AppFooter />
     </div>
   )
 })

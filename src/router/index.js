@@ -1,27 +1,27 @@
-import React from "react"
-import { Navigate } from "react-router-dom"
-const Home = React.lazy(() => import("../views/home"))
+import React from 'react'
+import { Navigate } from 'react-router-dom'
+const Home = React.lazy(() => import('../views/home'))
 // import Home from "@/views/home"
-const Entire = React.lazy(() => import("../views/entire"))
-const Detail = React.lazy(() => import("../views/detail"))
-
+const Entire = React.lazy(() => import('../views/entire'))
+const Detail = React.lazy(() => import('../views/detail'))
+// 路由数组
 const routes = [
   {
-    path: "/",
-    element: <Navigate to="/home"/>
+    path: '/',
+    element: <Navigate to='/home' />,
   },
   {
-    path: "/home",
-    element: <Home/>
+    path: '/home',
+    element: <Home />,
   },
   {
-    path: "/entire",
-    element: <Entire/>
+    path: '/entire',
+    element: <Entire />,
   },
   {
-    path: "/detail",
-    element: <Detail/>
-  }
+    path: '/detail',
+    element: <Detail />,
+  },
 ]
 
 export default routes
